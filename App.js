@@ -16,8 +16,10 @@
         const sliderTexts = [...sliderContainer.querySelectorAll(".text-container")]
         const timerContainer = document.querySelector(".timer-container")
         let clicked = false,
-            timer = 10000, 
+            timer = 5000, 
             counter = 0
+
+            //Get the current Item and return its Index 
               function getCurrent(){
                 const currentItem = sliderContainer.querySelector(".media-container picture.current")
                 const index = sliderImgs.indexOf(currentItem)
@@ -59,14 +61,24 @@
                 } 
                }
 
-              let swapSliderInterval = setInterval(changeSlider, timer)
+            //   let swapSliderInterval = setInterval(changeSlider, timer)
 
                function timerLine(){
-
-                timerContainer.style.cssText = `width: ${(counter/timer)*1000}%`
+                let percent = (counter/timer)*1000
+                if( percent >= 100){
+                    changeSlider()
+                    counter = 0
+                }
+                timerContainer.style.cssText = `width: ${percent}%`
                 counter++
                
                }
+
+               function sliderAnimate(){
+                timerLine()
+                requestAnimationFrame(sliderAnimate)
+               }
+               sliderAnimate()
             //    let timerLineInterval = setInterval(timerLine, 10)
 
             //   add the click event
@@ -74,13 +86,10 @@
            sliderCtrs.forEach(btn => {
             btn.addEventListener("click", (e) => {
                 e.preventDefault()
-                console.log(e.target.classList.value)
                 if(e.target.classList.value == "left"){
                     clicked = true
                 }
-                clearInterval(swapSliderInterval)
                 changeSlider()
-                swapSliderInterval = setInterval(changeSlider, timer)
                 clicked = false
             } )
            })
@@ -92,9 +101,7 @@
                 if(e.code == "ArrowLeft"){
                     clicked = true
                 }
-                clearInterval(swapSliderInterval)
                 changeSlider()
-                swapSliderInterval = setInterval(changeSlider, timer)
                 clicked = false
             }
             
