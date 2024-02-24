@@ -1,0 +1,25 @@
+{
+  "name": "room-homepage",
+  "version": "1.0.0",
+  "description": "This a coding challenge fron FRONTEND MENTOR Website. The Design is provided by the website team and i have to code it as close as possible to the givin design",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arteque/room-homepage.git"
+  },
+  "keywords": [
+    "Room",
+    "Homepage",
+    "Homepage",
+    "Frondend"
+  ],
+  "author": "Ahemd Lemssiah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Arteque/room-homepage/issues"
+  },
+  "homepage": "https://github.com/Arteque/room-homepage#readme"
+}
