@@ -217,12 +217,28 @@ section#hero-section .texts-container {
 }
 section#hero-section .texts-container .text-container {
   display: none;
-  opacity: 0;
 }
 section#hero-section .texts-container .text-container.current {
   display: block;
-  -webkit-animation: showText 2s linear forwards;
-          animation: showText 2s linear forwards;
+}
+section#hero-section .texts-container .text-container.current h2 {
+  opacity: 0;
+  -webkit-animation: showText 0.3s linear forwards;
+          animation: showText 0.3s linear forwards;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+section#hero-section .texts-container .text-container.current p {
+  opacity: 0;
+  -webkit-animation: showText 0.3s linear forwards;
+          animation: showText 0.3s linear forwards;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+section#hero-section .texts-container .text-container.current a {
+  opacity: 0;
+  -webkit-animation: showText 0.3s linear forwards;
+          animation: showText 0.3s linear forwards;
   -webkit-animation-delay: 0.5s;
           animation-delay: 0.5s;
 }
@@ -255,25 +271,25 @@ section#hero-section .texts-container .text-container.current {
 @-webkit-keyframes showText {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(100px);
-            transform: translateX(100px);
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 @keyframes showText {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(100px);
-            transform: translateX(100px);
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 .attribution {

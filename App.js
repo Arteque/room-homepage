@@ -85,3 +85,18 @@
             } )
            })
 
+        //    KeyboardEvent
+           document.addEventListener("keydown", (e) => {
+            console.log(e)
+            if(e.code == "ArrowLeft" || e.code == "ArrowRight"){
+                if(e.code == "ArrowLeft"){
+                    clicked = true
+                }
+                clearInterval(swapSliderInterval)
+                changeSlider()
+                swapSliderInterval = setInterval(changeSlider, timer)
+                clicked = false
+            }
+            
+           })
+
