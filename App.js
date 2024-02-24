@@ -14,7 +14,7 @@
         const sliderImgs = [...sliderContainer.querySelectorAll(".media-container picture")]
         const sliderCtrs = [...sliderContainer.querySelectorAll(".controlls-container li")]  
         const sliderTexts = [...sliderContainer.querySelectorAll(".text-container")]
-        const timerContainer = sliderContainer.querySelector(".timer-container")
+        const timerContainer = document.querySelector(".timer-container")
         let clicked = false,
             timer = 10000, 
             counter = 0

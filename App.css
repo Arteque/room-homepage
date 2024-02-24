@@ -147,8 +147,12 @@ header nav.open .burger-container .open {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    padding: 0 5rem;
+    padding: 0;
     gap: 3rem;
+    max-width: 1400px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
   header nav, header nav.open {
     position: relative;
@@ -166,15 +170,28 @@ header nav.open .burger-container .open {
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
     position: relative;
+    padding-block: 1rem;
   }
   header nav ul a::after, header nav.open ul a::after {
     content: "";
     position: absolute;
     bottom: 0;
-    width: 50%;
+    width: 0;
+    height: 3px;
     left: 50%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
+    background-color: var(--white);
+    -webkit-transition: all 1s;
+    transition: all 1s;
+  }
+  header nav ul a:hover, header nav.open ul a:hover {
+    color: var(--white);
+  }
+  header nav ul a:hover::after, header nav.open ul a:hover::after {
+    width: 50%;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
   }
 }
 
@@ -182,6 +199,17 @@ section h2 {
   font-size: 2rem;
   -webkit-padding-before: 3rem;
           padding-block-start: 3rem;
+}
+section#hero-section .timer-container {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  height: 5px;
+  width: 100%;
+  background-color: var(--gray);
 }
 section#hero-section .media-and-ctrls-container {
   position: relative;
@@ -210,22 +238,6 @@ section#hero-section .media-and-ctrls-container .controlls-container li {
 section#hero-section .media-and-ctrls-container .controlls-container img {
   width: 70%;
   pointer-events: none;
-}
-@media screen and (min-width: 900px) {
-  section#hero-section .media-and-ctrls-container .controlls-container {
-    right: -100%;
-  }
-}
-section#hero-section .media-and-ctrls-container .timer-container {
-  position: absolute;
-  z-index: 100;
-  bottom: -5px;
-  left: 0;
-  -webkit-transform-origin: left;
-          transform-origin: left;
-  height: 5px;
-  width: 100%;
-  background-color: var(--gray);
 }
 section#hero-section .wrapper {
   -webkit-padding-after: 5rem;
@@ -262,29 +274,53 @@ section#hero-section .texts-container .text-container.current a {
           animation-delay: 0.5s;
 }
 @media screen and (min-width: 900px) {
-  section#hero-section {
-    position: relative;
-  }
-  section#hero-section .media-and-ctrls-container {
-    position: unset;
-  }
   section#hero-section .sliders-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     gap: 2rem;
   }
-  section#hero-section .sliders-container .wrapper {
-    max-width: 30%;
-  }
   section#hero-section .sliders-container .media-and-ctrls-container {
-    width: 60%;
+    max-width: 60%;
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+  }
+  section#hero-section .sliders-container .media-and-ctrls-container .media-container {
+    height: 100%;
+  }
+  section#hero-section .sliders-container .media-and-ctrls-container .media-container picture {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   section#hero-section .sliders-container .texts-container {
-    width: 30%;
+    width: 40%;
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
+  section#hero-section .sliders-container .controlls-container {
+    right: -100%;
+    left: 100%;
+  }
+  section#hero-section .sliders-container .controlls-container li {
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  section#hero-section .sliders-container .controlls-container li:hover {
+    background-color: var(--gray);
+  }
+}
+@media screen and (min-width: 900px) {
+  section#about-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    -ms-flex-line-pack: center;
+        align-content: center;
   }
 }
 
