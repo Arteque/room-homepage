@@ -11,31 +11,24 @@
     <link rel="stylesheet" href="./_public/style/App.css">
     <link rel="stylesheet" href="./_public/style/App.css.map">
     <title>Frontend Mentor | Room homepage</title>
-      <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: inherit; }
-    .attribution ul{
-        display:flex;
-        list-style:none;
-        justify-content: center;
-        gap: 1rem;
-    }
-    .attribution li a i{
-        font-size: 1.2rem;
-        color:inherit;
-        margin-block: 1rem;
-    }
-  </style>
 </head>
 <body>
     <h1 class="hide-it">Frontend Mentor | Room homepage</h1>
     <!--Header-->
     <header>
-        <div class="logo-container"></div>
-        <div class="burger-container"></div>
+        <div class="logo-container">
+            <img src="./_public/images/logo.svg" alt="Logo">
+        </div>
         <nav>
-            <ul>
+            <div class="burger-container">
+                <div class="open">
+                    <img src="./_public/images/icon-hamburger.svg" alt="Open">
+                </div>
+                <div class="close">
+                    <img src="./_public/images/icon-close.svg" alt="Close">
+                </div>
+            </div>
+            <ul class="nav-container">
                 <li><a href="">home</a></li>
                 <li><a href="">shop</a></li>
                 <li><a href="">about</a></li>
@@ -77,12 +70,13 @@
                                 <img src="./_public/images/icon-angle-right.svg" alt="Right">
                             </li>
                         </ul>
+                        <div class="timer-container"></div>
                     </div>
 
                     <!--Texts Container-->
                     <div class="texts-container wrapper">
                         <!-- slider1 Text -->
-                         <div class="text-container">
+                         <div class="text-container current">
                             <h2>Discover innovative ways to decorate</h2>
                             <p>
                                 We provide unmatched quality, comfort, and style for property owners across the country. 
@@ -183,5 +177,96 @@
 
         </ul>
     </div>
+
+    <script async>
+
+        //Navigation // Mobile Behavior
+        const burgerContainer = document.querySelector(".burger-container"),
+            nav = document.querySelector("nav")
+
+            burgerContainer.addEventListener("click", (e) => {
+                e.preventDefault()
+
+                nav.classList.toggle("open")
+            })
+
+        //Slider
+        const sliderContainer = document.querySelector(".sliders-container")
+        const sliderImgs = [...sliderContainer.querySelectorAll(".media-container picture")]
+        const sliderCtrs = [...sliderContainer.querySelectorAll(".controlls-container li")]  
+        const sliderTexts = [...sliderContainer.querySelectorAll(".text-container")]
+        const timerContainer = sliderContainer.querySelector(".timer-container")
+        let clicked = false,
+            timer = 10000, 
+            counter = 0
+              function getCurrent(){
+                const currentItem = sliderContainer.querySelector(".media-container picture.current")
+                const index = sliderImgs.indexOf(currentItem)
+                return index
+              }
+            
+              function changeSlider(item){
+                // reset the counter for the timer bar
+                counter = 0
+                // get the current item
+                let currentImg = sliderImgs[getCurrent()]
+                let currentText = sliderTexts[getCurrent()]
+                let nextItem, prevItem
+                
+                // If the prev btn is clicked triger the prevItem
+                if(clicked){
+                    if(!currentImg.previousElementSibling){
+                        prevItem = sliderImgs.length - 1
+                    }else{
+                        prevItem = sliderImgs.indexOf(currentImg.previousElementSibling)
+                    }
+                    currentImg.classList.remove("current")
+                    currentText.classList.remove("current")
+                    sliderImgs[prevItem].classList.add("current")
+                    sliderTexts[prevItem].classList.add("current")
+
+                }else{
+                    // if not get the next item
+
+                    if(!currentImg.nextElementSibling){
+                        nextItem = 0
+                    }else{
+                        nextItem = sliderImgs.indexOf(currentImg.nextElementSibling)
+                    }
+                    currentImg.classList.remove("current")
+                    currentText.classList.remove("current")
+                    sliderImgs[nextItem].classList.add("current")
+                    sliderTexts[nextItem].classList.add("current")
+                } 
+               }
+
+              let swapSliderInterval = setInterval(changeSlider, timer)
+
+               function timerLine(){
+
+                timerContainer.style.cssText = `width: ${(counter/timer)*1000}%`
+                counter++
+               
+               }
+               let timerLineInterval = setInterval(timerLine, 10)
+
+            //   add the click event
+
+           sliderCtrs.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.preventDefault()
+                console.log(e.target.classList.value)
+                if(e.target.classList.value == "left"){
+                    clicked = true
+                }
+                clearInterval(swapSliderInterval)
+                changeSlider()
+                swapSliderInterval = setInterval(changeSlider, timer)
+                clicked = false
+            } )
+           })
+
+
+    </script>
 </body>
 </html>

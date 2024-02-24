@@ -16,4 +16,286 @@ html, body {
   font-family: "League Spartan", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+p, a {
+  font-size: 16px;
+}
+
+p {
+  color: var(--gray);
+  margin-block: 1rem;
+  line-height: 1.5rem;
+}
+
+ul[class] {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+a:hover {
+  color: var(--gray);
+}
+a.call-to-action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  font-weight: 600;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-block: 1rem;
+  -webkit-margin-after: 2rem;
+          margin-block-end: 2rem;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.wrapper {
+  width: min(85%, 1400px);
+  margin-inline: auto;
+}
+
+.hide-it {
+  height: 0;
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+header {
+  position: absolute;
+  padding: 3rem 1rem;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 999;
+}
+header .logo-container {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-inline: auto;
+}
+header nav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 3rem 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+header nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: translateX(20px);
+          transform: translateX(20px);
+}
+header nav ul a {
+  font-weight: 600;
+}
+header nav .burger-container .close {
+  display: none;
+}
+header nav.open {
+  background-color: var(--white);
+}
+header nav.open ul {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+header nav.open .burger-container .close {
+  display: unset;
+}
+header nav.open .burger-container .open {
+  display: none;
+}
+@media screen and (min-width: 900px) {
+  header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  header nav, header nav.open {
+    position: relative;
+    background-color: transparent;
+  }
+  header nav .burger-container, header nav.open .burger-container {
+    display: none;
+  }
+  header nav ul, header nav.open ul {
+    opacity: 1;
+  }
+  header nav ul a, header nav.open ul a {
+    color: var(--white);
+    pointer-events: auto;
+  }
+}
+
+section h2 {
+  font-size: 2rem;
+}
+section#hero-section .media-and-ctrls-container {
+  position: relative;
+}
+section#hero-section .media-and-ctrls-container picture {
+  display: none;
+}
+section#hero-section .media-and-ctrls-container picture.current {
+  display: block;
+  -webkit-animation: showData 0.5s linear forwards;
+          animation: showData 0.5s linear forwards;
+}
+section#hero-section .media-and-ctrls-container .controlls-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+section#hero-section .media-and-ctrls-container .controlls-container li {
+  background-color: var(--black);
+  padding: 1rem 1.5rem;
+}
+section#hero-section .media-and-ctrls-container .controlls-container img {
+  width: 70%;
+  pointer-events: none;
+}
+section#hero-section .media-and-ctrls-container .timer-container {
+  position: absolute;
+  z-index: 100;
+  bottom: -5px;
+  left: 0;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  height: 5px;
+  width: 100%;
+  background-color: var(--gray);
+}
+section#hero-section .texts-container {
+  padding-block: 3rem;
+  overflow: hidden;
+}
+section#hero-section .texts-container .text-container {
+  display: none;
+  opacity: 0;
+}
+section#hero-section .texts-container .text-container.current {
+  display: block;
+  -webkit-animation: showText 2s linear forwards;
+          animation: showText 2s linear forwards;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+@-webkit-keyframes showData {
+  0% {
+    opacity: 0;
+    -webkit-filter: blur(5px) grayscale(1);
+            filter: blur(5px) grayscale(1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-filter: blur(0) grayscale(0);
+            filter: blur(0) grayscale(0);
+  }
+}
+
+@keyframes showData {
+  0% {
+    opacity: 0;
+    -webkit-filter: blur(5px) grayscale(1);
+            filter: blur(5px) grayscale(1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-filter: blur(0) grayscale(0);
+            filter: blur(0) grayscale(0);
+  }
+}
+@-webkit-keyframes showText {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+            transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@keyframes showText {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+            transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-block: 1rem;
+}
+.attribution ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1rem;
+}
+.attribution ul li a {
+  color: inherit;
+}
+.attribution ul li a i {
+  font-size: 1.2rem;
+  color: inherit;
+  margin-block: 1rem;
 }/*# sourceMappingURL=App.css.map */
