@@ -14,6 +14,13 @@
 </head>
 <body>
     <h1 class="hide-it">Frontend Mentor | Room homepage</h1>
+    <div class="loader-container">
+        <div class="loader">
+        </div>
+        <div class="loader-2">
+        </div>
+        <p>Download...</p>
+      </div>
     <!--Header-->
     <header>
         <div class="logo-container">
@@ -179,5 +186,13 @@
         </ul>
     </div>
 <script src="./App.js"></script>
+
+<script>
+    document.onreadystatechange = () => {
+        if(document.readyState == "complete"){
+            document.querySelector(".loader-container").classList.add("hide-it")
+        }
+    }
+</script>
 </body>
 </html>

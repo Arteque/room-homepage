@@ -435,4 +435,111 @@ section#about-section h2 {
   font-size: 1.2rem;
   -webkit-padding-before: 1rem;
           padding-block-start: 1rem;
+}
+
+:root {
+  --gray: hsl(0, 0%, 63%);
+  --gray-100: hsl(0, 0%, 27%);
+  --black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+}
+
+.loader-container {
+  position: fixed;
+  z-index: 999999999;
+  inset: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--black);
+  color: var(--gray-100);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.loader-container .loader, .loader-container .loader-2 {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 5px;
+  height: 20px;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  background-color: var(--gray-100);
+  -webkit-animation: reformit 2s linear infinite;
+          animation: reformit 2s linear infinite;
+}
+.loader-container .loader-2 {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+.loader-container.hide-it {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@-webkit-keyframes reformit {
+  0% {
+    width: 5px;
+    height: 5px;
+  }
+  20% {
+    width: 50px;
+    height: 5px;
+  }
+  40% {
+    width: 5px;
+    height: 5px;
+  }
+  60% {
+    width: 5px;
+    height: 50px;
+  }
+  80% {
+    width: 5px;
+    height: 5px;
+  }
+  100% {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+@keyframes reformit {
+  0% {
+    width: 5px;
+    height: 5px;
+  }
+  20% {
+    width: 50px;
+    height: 5px;
+  }
+  40% {
+    width: 5px;
+    height: 5px;
+  }
+  60% {
+    width: 5px;
+    height: 50px;
+  }
+  80% {
+    width: 5px;
+    height: 5px;
+  }
+  100% {
+    width: 5px;
+    height: 5px;
+  }
 }/*# sourceMappingURL=App.css.map */
