@@ -56,8 +56,6 @@ a.call-to-action {
   width: -moz-fit-content;
   width: fit-content;
   padding-block: 1rem;
-  -webkit-margin-after: 2rem;
-          margin-block-end: 2rem;
 }
 
 img {
@@ -112,8 +110,8 @@ header nav ul {
   gap: 1rem;
   opacity: 0;
   pointer-events: none;
-  -webkit-transform: translateX(20px);
-          transform: translateX(20px);
+  -webkit-transform: translateX(-20px);
+          transform: translateX(-20px);
 }
 header nav ul a {
   font-weight: 600;
@@ -149,9 +147,8 @@ header nav.open .burger-container .open {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    padding: 0 5rem;
+    gap: 3rem;
   }
   header nav, header nav.open {
     position: relative;
@@ -166,11 +163,25 @@ header nav.open .burger-container .open {
   header nav ul a, header nav.open ul a {
     color: var(--white);
     pointer-events: auto;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    position: relative;
+  }
+  header nav ul a::after, header nav.open ul a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
 }
 
 section h2 {
   font-size: 2rem;
+  -webkit-padding-before: 3rem;
+          padding-block-start: 3rem;
 }
 section#hero-section .media-and-ctrls-container {
   position: relative;
@@ -200,6 +211,11 @@ section#hero-section .media-and-ctrls-container .controlls-container img {
   width: 70%;
   pointer-events: none;
 }
+@media screen and (min-width: 900px) {
+  section#hero-section .media-and-ctrls-container .controlls-container {
+    right: -100%;
+  }
+}
 section#hero-section .media-and-ctrls-container .timer-container {
   position: absolute;
   z-index: 100;
@@ -211,8 +227,11 @@ section#hero-section .media-and-ctrls-container .timer-container {
   width: 100%;
   background-color: var(--gray);
 }
+section#hero-section .wrapper {
+  -webkit-padding-after: 5rem;
+          padding-block-end: 5rem;
+}
 section#hero-section .texts-container {
-  padding-block: 3rem;
   overflow: hidden;
 }
 section#hero-section .texts-container .text-container {
@@ -241,6 +260,32 @@ section#hero-section .texts-container .text-container.current a {
           animation: showText 0.3s linear forwards;
   -webkit-animation-delay: 0.5s;
           animation-delay: 0.5s;
+}
+@media screen and (min-width: 900px) {
+  section#hero-section {
+    position: relative;
+  }
+  section#hero-section .media-and-ctrls-container {
+    position: unset;
+  }
+  section#hero-section .sliders-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 2rem;
+  }
+  section#hero-section .sliders-container .wrapper {
+    max-width: 30%;
+  }
+  section#hero-section .sliders-container .media-and-ctrls-container {
+    width: 60%;
+  }
+  section#hero-section .sliders-container .texts-container {
+    width: 30%;
+  }
 }
 
 @-webkit-keyframes showData {
