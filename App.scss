@@ -175,8 +175,6 @@ header{
 
 
 section{
-    // max-width: 1980px;
-    // margin-inline:auto;
     h2{
         font-size: 2rem;
         padding-block-start: 3rem;
@@ -248,6 +246,38 @@ section{
             }
         }
         @include desktop{
+            .sliders-container {
+                display: grid;
+                grid-template-columns: 0.6fr 0.4fr;
+                position: relative;
+                .media-and-ctrls-container{
+                    align-self: stretch;
+                    picture{
+                        height: 100%;
+                        width: auto;
+                        object-fit: cover;
+                    }
+                }
+                .texts-container {
+                    align-self: center;
+                    justify-self: start;
+                    padding-block-end: unset;
+                    &.wrapper{
+                        width: 60%;
+                        margin-inline: 5rem auto
+                    }
+                }
+                .controlls-container{
+                    right: auto;
+                    left: 100%;
+                    li{
+                        width: 4rem;
+                    }
+                }
+            }
+        }
+        /*
+        @include desktop{
             .sliders-container{
                 display:flex;
                 justify-content: flex-start;
@@ -281,6 +311,7 @@ section{
                 }
             }
         }
+        */
     }
     &#about-section{
         @include desktop{

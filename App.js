@@ -67,7 +67,7 @@
                 counter++
                
                }
-               let timerLineInterval = setInterval(timerLine, 10)
+            //    let timerLineInterval = setInterval(timerLine, 10)
 
             //   add the click event
 
