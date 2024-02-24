@@ -5,7 +5,7 @@ Project Design on [Frontend Mentor](https://www.frontendmentor.io)
 Coded by: [Ahmed Lemssiah](https://artecke.de)
 
 ## The "Room Homepage" challenge from Frontend Mentor
-The challenge is to build out an e-commerce homepage based on the design downloaded from [Frontend Mentor](https://www.frontendmentor.io/challenges/room-homepage-BtdBY_ENq/hub){:target="_blank"} and get it looking as close to the design as possible.
+The challenge is to build out an e-commerce homepage based on the design downloaded from [Frontend Mentor](https://www.frontendmentor.io/challenges/room-homepage-BtdBY_ENq/hub) and get it looking as close to the design as possible.
 
 The users should be able to:
 
